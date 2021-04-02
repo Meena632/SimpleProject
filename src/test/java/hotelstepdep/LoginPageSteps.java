@@ -104,22 +104,32 @@ public class LoginPageSteps  extends BaseClass{
 
 	@When("User enters the firstname and lastname and address")
 	public void user_enters_the_firstname_and_lastname_and_address() {
-	    
+	 WebElement fname= driver.findElement(By.xpath("//*[@id='first_name']")); 
+	 fname.sendKeys("Meeenatchi");
 	}
 
 	@When("User enters the credit card no")
 	public void user_enters_the_credit_card_no() {
+		WebElement cno= driver.findElement(By.xpath("//*[@id='cc_num']")); 
+		 cno.sendKeys("6703765863467");
 	    
 	}
 
 	@When("User select the card type")
 	public void user_select_the_card_type() {
-	   
+		Select s=new Select(driver.findElement(By.xpath("//*[@id='cc_type']"))); 
+		s.selectByValue("VISA");  
 	}
 
 	@When("User select card expiry date")
 	public void user_select_card_expiry_date() {
-	    
+		
+			Select s=new Select(driver.findElement(By.xpath("//*[@id='cc_type']"))); 
+			s.selectByValue("VISA");
+			
+			driver.findElement(By.xpath("//*[@id='cc_type']")); 
+			Thread.sleep(100);
+				s.selectByValue("VISA");
 	}
 
 	@When("User enter the CVV number")
